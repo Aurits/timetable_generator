@@ -43,7 +43,7 @@
                                 <!-- Column 2: Select Time Slot -->
                                 <div class="col-md-4">
                                     <label for="time_slot" class="form-label">Select Time Slot</label>
-                                    <select class="form-select" id="time_slot" multiple size="5">
+                                    <select class="form-select" id="time_slot" multiple size="2">
                                         <option value="7:00 AM - 8:00 AM">7:00 AM - 8:00 AM</option>
                                         <option value="8:00 AM - 9:00 AM">8:00 AM - 9:00 AM</option>
                                         <option value="9:00 AM - 10:00 AM">9:00 AM - 10:00 AM</option>
