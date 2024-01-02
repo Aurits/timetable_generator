@@ -31,6 +31,7 @@
                                 <div class="col-md-4">
                                     <label for="day" class="form-label">Select Day</label>
                                     <select class="form-select" id="day">
+                                        <option value="#">------</option>
                                         <option value="monday">Monday</option>
                                         <option value="tuesday">Tuesday</option>
                                         <option value="wednesday">Wednesday</option>
@@ -44,6 +45,7 @@
                                 <div class="col-md-4">
                                     <label for="time_slot" class="form-label">Select Time Slot</label>
                                     <select class="form-select" id="time_slot">
+                                        <option value="#">------</option>
                                         <option value="7:00 AM - 8:00 AM">7:00 AM - 8:00 AM</option>
                                         <option value="8:00 AM - 9:00 AM">8:00 AM - 9:00 AM</option>
                                         <option value="9:00 AM - 10:00 AM">9:00 AM - 10:00 AM</option>
