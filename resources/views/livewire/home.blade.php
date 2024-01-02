@@ -2,18 +2,20 @@
     <!-- Navbar with professional styling -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
         <div class="container">
-            <a class="navbar-brand" href="#">Your School Name</a>
+            <a class="navbar-brand" href="/">TimeTable King</a>
 
             <div class="d-flex flex-grow-1 justify-content-end">
-                <ul class="navbar-nav">
+                <ul class="navbar-nav flex-row">
+                    <!-- Add the flex-row class here -->
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Link 1</a>
+                        <a class="nav-link" href="#">Generate</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Link 2</a>
+                        <a class="nav-link" href="#">Archived</a>
                     </li>
                 </ul>
             </div>
+
         </div>
     </nav>
 
