@@ -43,23 +43,24 @@ class Generate extends Component
             'selectedTeacher' => 'required',
         ]);
 
-        $timeSlotString = implode(', ', $this->timeSlot);
+        foreach ($this->timeSlot as $selectedTimeSlot) {
+            $timetableEntry = new TimetableEntry([
+                'day' => $this->day,
+                'time_slot' => $selectedTimeSlot,
+                'classroom_id' => $this->selectedClassroom,
+                'subject_id' => $this->selectedSubject,
+                'teacher_id' => $this->selectedTeacher,
+            ]);
 
-        $timetableEntry = new TimetableEntry([
-            'day' => $this->day,
-            'time_slot' => $timeSlotString,
-            'classroom_id' => $this->selectedClassroom,
-            'subject_id' => $this->selectedSubject,
-            'teacher_id' => $this->selectedTeacher,
-        ]);
-
-        if (!$timetableEntry->isColliding()) {
-            $timetableEntry->save();
-            session()->flash('success', 'Timetable entry stored successfully.');
-            $this->clearForm();
-        } else {
-            session()->flash('error', 'Timetable collision detected. Please choose a different time slot or classroom.');
+            if (!$timetableEntry->isColliding()) {
+                $timetableEntry->save();
+            } else {
+                session()->flash('error', 'Timetable collision detected for time slot: ' . $selectedTimeSlot . '. Please choose a different time slot or classroom.');
+            }
         }
+
+        session()->flash('success', 'Timetable entries stored successfully.');
+        $this->clearForm();
     }
 
     private function clearForm()
