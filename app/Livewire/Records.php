@@ -11,13 +11,12 @@ class Records extends Component
 
     public function mount()
     {
-        // Fetch records from the database
-        $this->entries = TimetableEntry::all();
+        // Fetch records from the database and store them in $this->entries
+        $this->entries = TimetableEntry::paginate(10); // Change 10 to the number of records per page you desire
     }
 
     public function render()
     {
-        $entries = TimetableEntry::paginate(10); // Change 10 to the number of records per page you desire
-        return view('livewire.records', ['entries' => $entries]);
+        return view('livewire.records');
     }
 }
