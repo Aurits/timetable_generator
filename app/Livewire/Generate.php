@@ -1,10 +1,9 @@
 <?php
 
-namespace App\Livewire;
+namespace App\Http\Livewire;
 
 use App\Models\TimetableEntry;
-use Illuminate\Http\Request;
-
+use Illuminate\Validation\Rule;
 use Livewire\Component;
 use App\Models\Classroom;
 use App\Models\Subject;
@@ -18,6 +17,8 @@ class Generate extends Component
     public $selectedClassroom;
     public $selectedSubject;
     public $selectedTeacher;
+    public $day;
+    public $timeSlot;
 
     public function mount()
     {
@@ -27,30 +28,48 @@ class Generate extends Component
         $this->teachers = Teacher::all();
     }
 
-
-
-    public function store(Request $request)
+    public function generateTimetable()
     {
-        // Validate the request data as needed
-
-        $timetableEntry = new TimetableEntry([
-            'day' => $request->day,
-            'time_slot' => $request->time_slot,
-            'classroom_id' => $request->classroom_id,
-            'subject_id' => $request->subject_id,
-            'teacher_id' => $request->teacher_id,
+        $this->validate([
+            'day' => 'required',
+            'timeSlot' => 'required|array|min:1',
+            'timeSlot.*' => Rule::in([
+                '7:00 AM - 8:00 AM', '8:00 AM - 9:00 AM', '9:00 AM - 10:00 AM',
+                '10:00 AM - 11:00 AM', '11:00 AM - 12:00 PM', '12:00 PM - 1:00 PM',
+                '1:00 PM - 2:00 PM', '2:00 PM - 3:00 PM', '3:00 PM - 4:00 PM', '4:00 PM - 5:00 PM',
+            ]),
+            'selectedClassroom' => 'required',
+            'selectedSubject' => 'required',
+            'selectedTeacher' => 'required',
         ]);
 
-        // Check for collision before saving
+        $timeSlotString = implode(', ', $this->timeSlot);
+
+        $timetableEntry = new TimetableEntry([
+            'day' => $this->day,
+            'time_slot' => $timeSlotString,
+            'classroom_id' => $this->selectedClassroom,
+            'subject_id' => $this->selectedSubject,
+            'teacher_id' => $this->selectedTeacher,
+        ]);
+
         if (!$timetableEntry->isColliding()) {
             $timetableEntry->save();
-            // Handle success or redirect as needed
+            session()->flash('success', 'Timetable entry stored successfully.');
+            $this->clearForm();
         } else {
-            // Handle collision, e.g., return an error response
-            return response()->json(['message' => 'Timetable collision detected.'], 422);
+            session()->flash('error', 'Timetable collision detected. Please choose a different time slot or classroom.');
         }
     }
 
+    private function clearForm()
+    {
+        $this->day = null;
+        $this->timeSlot = [];
+        $this->selectedClassroom = null;
+        $this->selectedSubject = null;
+        $this->selectedTeacher = null;
+    }
 
     public function render()
     {
