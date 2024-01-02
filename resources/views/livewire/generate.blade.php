@@ -61,8 +61,11 @@
                                 <!-- Column 3: Select Classroom -->
                                 <div class="col-md-4">
                                     <label for="classroom" class="form-label">Select Classroom</label>
-                                    <select class="form-select" id="classroom">
-                                        <!-- Options for classrooms -->
+                                    <select class="form-select" id="classroom" wire:model="selectedClassroom">
+                                        <option value="">Select Classroom</option>
+                                        @foreach($classrooms as $classroom)
+                                        <option value="{{ $classroom->id }}">{{ $classroom->name }}</option>
+                                        @endforeach
                                     </select>
                                 </div>
                             </div>
@@ -71,16 +74,22 @@
                                 <!-- Column 4: Select Subject -->
                                 <div class="col-md-6">
                                     <label for="subject" class="form-label">Select Subject</label>
-                                    <select class="form-select" id="subject">
-                                        <!-- Options for subjects -->
+                                    <select class="form-select" id="subject" wire:model="selectedSubject">
+                                        <option value="">Select Subject</option>
+                                        @foreach($subjects as $subject)
+                                        <option value="{{ $subject->id }}">{{ $subject->name }}</option>
+                                        @endforeach
                                     </select>
                                 </div>
 
                                 <!-- Column 5: Select Teacher -->
                                 <div class="col-md-6">
                                     <label for="teacher" class="form-label">Select Teacher</label>
-                                    <select class="form-select" id="teacher">
-                                        <!-- Options for teachers -->
+                                    <select class="form-select" id="teacher" wire:model="selectedTeacher">
+                                        <option value="">Select Teacher</option>
+                                        @foreach($teachers as $teacher)
+                                        <option value="{{ $teacher->id }}">{{ $teacher->name }}</option>
+                                        @endforeach
                                     </select>
                                 </div>
                             </div>
