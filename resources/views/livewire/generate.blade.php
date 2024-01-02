@@ -19,6 +19,7 @@
         </div>
     </nav>
 
+
     <div class="container mt-4 flex-grow-1 d-flex justify-content-center align-items-center">
         <div class="row">
             <div class="col-md-8 mb-4">
@@ -26,48 +27,71 @@
                     <div class="card-body">
                         <h5 class="card-title">Generate Timetable</h5>
 
-                        <!-- Your timetable generation logic goes here -->
-                        <!-- You may use Livewire methods and components to handle the logic -->
-
-                        <!-- Example Form -->
                         <form>
-                            <div class="mb-3">
-                                <label for="day" class="form-label">Select Day</label>
-                                <select class="form-select" id="day">
-                                    <!-- Options for days -->
-                                </select>
+                            <!-- Row 1: Select Day -->
+                            <div class="row mb-3">
+                                <div class="col-md-6">
+                                    <label for="day" class="form-label">Select Day</label>
+                                    <select class="form-select" id="day">
+                                        <!-- Options for days -->
+                                    </select>
+                                </div>
                             </div>
-                            <div class="mb-3">
-                                <label for="time_slot" class="form-label">Select Time Slot</label>
-                                <select class="form-select" id="time_slot">
-                                    <!-- Options for time slots -->
-                                </select>
+
+                            <!-- Row 2: Select Time Slot -->
+                            <div class="row mb-3">
+                                <div class="col-md-6">
+                                    <label for="time_slot" class="form-label">Select Time Slot</label>
+                                    <select class="form-select" id="time_slot">
+                                        <!-- Options for time slots -->
+                                    </select>
+                                </div>
                             </div>
-                            <div class="mb-3">
-                                <label for="classroom" class="form-label">Select Classroom</label>
-                                <select class="form-select" id="classroom">
-                                    <!-- Options for classrooms -->
-                                </select>
+
+                            <!-- Row 3: Select Classroom -->
+                            <div class="row mb-3">
+                                <div class="col-md-6">
+                                    <label for="classroom" class="form-label">Select Classroom</label>
+                                    <select class="form-select" id="classroom">
+                                        <!-- Options for classrooms -->
+                                    </select>
+                                </div>
                             </div>
-                            <div class="mb-3">
-                                <label for="subject" class="form-label">Select Subject</label>
-                                <select class="form-select" id="subject">
-                                    <!-- Options for subjects -->
-                                </select>
+
+                            <!-- Row 4: Select Subject -->
+                            <div class="row mb-3">
+                                <div class="col-md-6">
+                                    <label for="subject" class="form-label">Select Subject</label>
+                                    <select class="form-select" id="subject">
+                                        <!-- Options for subjects -->
+                                    </select>
+                                </div>
                             </div>
-                            <div class="mb-3">
-                                <label for="teacher" class="form-label">Select Teacher</label>
-                                <select class="form-select" id="teacher">
-                                    <!-- Options for teachers -->
-                                </select>
+
+                            <!-- Row 5: Select Teacher -->
+                            <div class="row mb-3">
+                                <div class="col-md-6">
+                                    <label for="teacher" class="form-label">Select Teacher</label>
+                                    <select class="form-select" id="teacher">
+                                        <!-- Options for teachers -->
+                                    </select>
+                                </div>
                             </div>
-                            <button type="submit" class="btn btn-primary">Generate Timetable</button>
+
+                            <!-- Row 6: Submit Button -->
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <button type="submit" class="btn btn-primary">Generate Timetable</button>
+                                </div>
+                            </div>
                         </form>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+
+
 
     <!-- Footer with a professional look -->
     <footer class="footer mt-auto py-3 bg-dark text-light">
