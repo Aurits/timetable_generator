@@ -65,8 +65,7 @@
                                 <td>{{ $entry->subject->name }}</td>
                                 <td>{{ $entry->teacher->name }}</td>
                                 <td>
-                                    <a href="{{ route('timetable.edit', $entry->id) }}"
-                                        class="btn btn-primary btn-sm">Edit</a>
+                                    <a href="{{ route('edit', $entry->id) }}" class="btn btn-primary btn-sm">Edit</a>
                                     <form action="{{ route('timetable.destroy', $entry->id) }}" method="post"
                                         style="display: inline-block;">
                                         @csrf
