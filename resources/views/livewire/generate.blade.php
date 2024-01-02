@@ -1,5 +1,3 @@
-<!-- resources/views/livewire/generate-timetable.blade.php -->
-
 <div style="min-height: 100vh; display: flex; flex-direction: column;">
     <!-- Navbar with professional styling -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
@@ -20,9 +18,7 @@
     </nav>
 
 
-
-
-    <div class=" mt-4 flex-grow-1 d-flex justify-content-center align-items-center">
+    <div class="container-fluid mt-4 flex-grow-1 d-flex justify-content-center align-items-center">
         <div class="row">
             <div class="mb-4">
                 <div class="card" style="height: 500px;">
@@ -86,8 +82,6 @@
             </div>
         </div>
     </div>
-
-
 
     <!-- Footer with a professional look -->
     <footer class="footer mt-auto py-3 bg-dark text-light">
