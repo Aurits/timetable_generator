@@ -1,4 +1,4 @@
-<div style="min-height: 100vh; display: flex; flex-direction: column;">
+<div>
     <!-- Navbar with professional styling -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
         <div class="container">
@@ -24,6 +24,13 @@
                 <div class="card">
                     <div class="card-body">
                         <h5 class="card-title">Add Classroom</h5>
+                        @if ($successMessage && $successMessage === 'Classroom added successfully!')
+                        <div class="alert alert-success" role="alert">
+                            {{ $successMessage }}
+                            <button wire:click="dismissMessage" type="button" class="btn-close"
+                                aria-label="Close"></button>
+                        </div>
+                        @endif
                         <form wire:submit.prevent="addClassroom">
                             <div class="mb-3">
                                 <label for="classroom" class="form-label">Classroom Name</label>
@@ -39,6 +46,13 @@
                 <div class="card">
                     <div class="card-body">
                         <h5 class="card-title">Add Subject</h5>
+                        @if ($successMessage && $successMessage === 'Subject added successfully!')
+                        <div class="alert alert-success" role="alert">
+                            {{ $successMessage }}
+                            <button wire:click="dismissMessage" type="button" class="btn-close"
+                                aria-label="Close"></button>
+                        </div>
+                        @endif
                         <form wire:submit.prevent="addSubject">
                             <div class="mb-3">
                                 <label for="subject" class="form-label">Subject Name</label>
@@ -54,6 +68,13 @@
                 <div class="card">
                     <div class="card-body">
                         <h5 class="card-title">Add Teacher</h5>
+                        @if ($successMessage && $successMessage === 'Teacher added successfully!')
+                        <div class="alert alert-success" role="alert">
+                            {{ $successMessage }}
+                            <button wire:click="dismissMessage" type="button" class="btn-close"
+                                aria-label="Close"></button>
+                        </div>
+                        @endif
                         <form wire:submit.prevent="addTeacher">
                             <div class="mb-3">
                                 <label for="teacher" class="form-label">Teacher Name</label>
