@@ -35,6 +35,7 @@
                                 <label for="classroom" class="form-label">Classroom Name</label>
                                 <input type="text" class="form-control" id="classroom" wire:model="classroom">
                             </div>
+                            <div class="" style="height: 100px;"></div>
                             <button type="submit" class="btn btn-success">Add Classroom</button>
                         </form>
                     </div>
@@ -57,6 +58,7 @@
                                 <label for="subject" class="form-label">Subject Name</label>
                                 <input type="text" class="form-control" id="subject" wire:model="subject">
                             </div>
+                            <div class="" style="height: 100px;"></div>
                             <button type="submit" class="btn btn-warning">Add Subject</button>
                         </form>
                     </div>
@@ -79,6 +81,7 @@
                                 <label for="teacher" class="form-label">Teacher Name</label>
                                 <input type="text" class="form-control" id="teacher" wire:model="teacher">
                             </div>
+                            <div class="" style="height: 100px;"></div>
                             <button type="submit" class="btn btn-info">Add Teacher</button>
                         </form>
                     </div>
