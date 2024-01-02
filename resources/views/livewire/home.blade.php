@@ -1,13 +1,24 @@
-<div>
+<div style="min-height: 100vh; display: flex; flex-direction: column;">
     <!-- Navbar with professional styling -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
         <div class="container">
             <a class="navbar-brand" href="#">Your School Name</a>
+
             <!-- Add any additional navigation items as needed -->
+            <div class="d-flex">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Link 1</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Link 2</a>
+                    </li>
+                </ul>
+            </div>
         </div>
     </nav>
 
-    <div class="container mt-4">
+    <div class="container mt-4 flex-grow-1 d-flex justify-content-center align-items-center">
         <div class="row">
             <div class="col-md-4">
                 <div class="card">
