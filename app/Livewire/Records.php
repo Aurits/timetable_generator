@@ -17,6 +17,7 @@ class Records extends Component
 
     public function render()
     {
-        return view('livewire.records');
+        $entries = TimetableEntry::paginate(10); // Change 10 to the number of records per page you desire
+        return view('livewire.records', ['entries' => $entries]);
     }
 }
