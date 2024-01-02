@@ -23,3 +23,4 @@ Route::get('/generate', Generate::class);
 Route::get('/records', Records::class);
 Route::get('/archived', Archived::class);
 Route::get('/search', [Records::class, 'search'])->name('search');
+Route::resource('/edit', Records::class);
