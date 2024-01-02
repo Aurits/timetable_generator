@@ -16,9 +16,7 @@ class Records extends Component
 
 
         // Fetch records from the database
-        //  $this->entries = TimetableEntry::all();
-        // Change 10 to the number of records per page you desire
-        $this->entries = TimetableEntry::paginate();
+        $this->entries = TimetableEntry::with('classroom', 'subject', 'teacher')->paginate();
     }
 
     public function render()
