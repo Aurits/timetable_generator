@@ -71,6 +71,7 @@
                             </div>
 
                             <!-- Row 6: Submit Button -->
+                            <div class="" style="height: 10px;"></div>
                             <div class="row">
                                 <div class="col-md-12 text-center">
                                     <button type="submit" class="btn btn-primary">Generate Timetable</button>
