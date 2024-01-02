@@ -1,8 +1,8 @@
 <?php
 
-use App\Livewire\Generate;
 use Illuminate\Support\Facades\Route;
 use App\Livewire\Home;
+use App\Livewire\Generate;
 
 /*
 |--------------------------------------------------------------------------
