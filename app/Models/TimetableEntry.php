@@ -4,6 +4,10 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use App\Models\Classroom;
+use App\Models\Subject;
+use App\Models\Teacher;
+
 
 class TimetableEntry extends Model
 {
