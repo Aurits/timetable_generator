@@ -21,65 +21,70 @@
         </div>
     </nav>
 
-    <div class="row">
-        <div class="mb-4 col-lg-8">
-            <div class="card"
-                style="height: 500px; width:80vw; border: 1px solid #dee2e6; border-radius: 8px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);">
-                <div class="card-body">
-                    <h5 class="card-title mb-4">TimeTable Records</h5>
+    <div class="container mt-4">
+        <div class="card"
+            style="width: 80vw; border: 1px solid #dee2e6; border-radius: 8px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);">
+            <div class="card-body">
+                <h5 class="card-title mb-4">TimeTable Records</h5>
 
-                    @if (session()->has('success'))
-                    <div class="alert alert-success">{{ session('success') }}</div>
-                    @endif
+                @if (session()->has('success'))
+                <div class="alert alert-success">{{ session('success') }}</div>
+                @endif
 
-                    @if (session()->has('error'))
-                    <div class="alert alert-danger">{{ session('error') }}</div>
-                    @endif
+                @if (session()->has('error'))
+                <div class="alert alert-danger">{{ session('error') }}</div>
+                @endif
 
-                    <!-- Search Form -->
-                    <form action="{{ route('search') }}" method="get" class="mb-3">
-                        <div class="input-group">
-                            <input type="text" name="keyword" class="form-control" placeholder="Search...">
-                            <button type="submit" class="btn btn-primary">Search</button>
-                        </div>
-                    </form>
+                <!-- Search Form -->
+                <form action="{{ route('search') }}" method="get" class="mb-3">
+                    <div class="input-group">
+                        <input type="text" name="keyword" class="form-control" placeholder="Search...">
+                        <button type="submit" class="btn btn-primary">Search</button>
+                    </div>
+                </form>
 
-                    <!-- Records Table -->
-                    <table class="table">
-                        <thead>
-                            <tr>
-                                <th>Day</th>
-                                <th>Time Slot</th>
-                                <th>Classroom</th>
-                                <th>Subject</th>
-                                <th>Teacher</th>
-                                <th>Action</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            @forelse($entries as $entry)
-                            <tr>
-                                <td>{{ $entry->day }}</td>
-                                <td>{{ $entry->time_slot }}</td>
-                                <td>{{ $entry->classroom->name }}</td>
-                                <td>{{ $entry->subject->name }}</td>
-                                <td>{{ $entry->teacher->name }}</td>
-                                <td>
-                                    <a href="" class="btn btn-primary btn-sm">Edit</a>
-                                    <form action="" method="post" style="display: inline-block;">
-                                        @csrf
-                                        @method('DELETE')
-                                        <button type="submit" class="btn btn-danger btn-sm">Delete</button>
-                                    </form>
-                                </td>
-                            </tr>
-                            @empty
-                            <tr>
-                                <td colspan="6" class="text-center">No records found.</td>
-                            </tr>
-                            @endforelse
-                        </tbody>
-                    </table>
+                <!-- Records Table -->
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Day</th>
+                            <th>Time Slot</th>
+                            <th>Classroom</th>
+                            <th>Subject</th>
+                            <th>Teacher</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @forelse($entries as $entry)
+                        <tr>
+                            <td>{{ $entry->day }}</td>
+                            <td>{{ $entry->time_slot }}</td>
+                            <td>{{ $entry->classroom->name }}</td>
+                            <td>{{ $entry->subject->name }}</td>
+                            <td>{{ $entry->teacher->name }}</td>
+                            <td>
+                                <a href="{{ route('timetable.edit', $entry->id) }}"
+                                    class="btn btn-primary btn-sm">Edit</a>
+                                <form action="{{ route('timetable.destroy', $entry->id) }}" method="post"
+                                    style="display: inline-block;">
+                                    @csrf
+                                    @method('DELETE')
+                                    <button type="submit" class="btn btn-danger btn-sm">Delete</button>
+                                </form>
+                            </td>
+                        </tr>
+                        @empty
+                        <tr>
+                            <td colspan="6" class="text-center">No records found.</td>
+                        </tr>
+                        @endforelse
+                    </tbody>
+                </table>
+
+                <!-- Pagination -->
+                <div class="d-flex justify-content-center">
+                    {{ $entries->links() }}
                 </div>
             </div>
         </div>
