@@ -31,7 +31,12 @@
                                 <div class="col-md-4">
                                     <label for="day" class="form-label">Select Day</label>
                                     <select class="form-select" id="day">
-                                        <!-- Options for days -->
+                                        <option value="monday">Monday</option>
+                                        <option value="tuesday">Tuesday</option>
+                                        <option value="wednesday">Wednesday</option>
+                                        <option value="thursday">Thursday</option>
+                                        <option value="friday">Friday</option>
+                                        <option value="saturday">Saturday</option>
                                     </select>
                                 </div>
 
@@ -39,9 +44,19 @@
                                 <div class="col-md-4">
                                     <label for="time_slot" class="form-label">Select Time Slot</label>
                                     <select class="form-select" id="time_slot">
-                                        <!-- Options for time slots -->
+                                        <option value="7:00 AM - 8:00 AM">7:00 AM - 8:00 AM</option>
+                                        <option value="8:00 AM - 9:00 AM">8:00 AM - 9:00 AM</option>
+                                        <option value="9:00 AM - 10:00 AM">9:00 AM - 10:00 AM</option>
+                                        <option value="10:00 AM - 11:00 AM">10:00 AM - 11:00 AM</option>
+                                        <option value="11:00 AM - 12:00 PM">11:00 AM - 12:00 PM</option>
+                                        <option value="12:00 PM - 1:00 PM">12:00 PM - 1:00 PM</option>
+                                        <option value="1:00 PM - 2:00 PM">1:00 PM - 2:00 PM</option>
+                                        <option value="2:00 PM - 3:00 PM">2:00 PM - 3:00 PM</option>
+                                        <option value="3:00 PM - 4:00 PM">3:00 PM - 4:00 PM</option>
+                                        <option value="4:00 PM - 5:00 PM">4:00 PM - 5:00 PM</option>
                                     </select>
                                 </div>
+
 
                                 <!-- Column 3: Select Classroom -->
                                 <div class="col-md-4">
