@@ -1,4 +1,5 @@
 <div style="min-height: 100vh; display: flex; flex-direction: column; background-color: #f8f9fa;">
+
     <!-- Navbar with professional styling -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
         <div class="container">
@@ -25,11 +26,20 @@
                     <div class="card-body">
                         <h5 class="card-title mb-4">Generate Timetable</h5>
 
-                        <form>
+                        @if (session()->has('success'))
+                        <div class="alert alert-success">{{ session('success') }}</div>
+                        @endif
+
+                        @if (session()->has('error'))
+                        <div class="alert alert-danger">{{ session('error') }}</div>
+                        @endif
+
+                        <form wire:submit.prevent="generateTimetable">
                             <div class="row mb-3">
                                 <div class="col-md-4">
                                     <label for="day" class="form-label">Select Day</label>
-                                    <select class="form-select" id="day">
+                                    <select class="form-select" id="day" wire:model="day">
+                                        <option value="">Select Day</option>
                                         <option value="monday">Monday</option>
                                         <option value="tuesday">Tuesday</option>
                                         <option value="wednesday">Wednesday</option>
@@ -41,7 +51,7 @@
 
                                 <div class="col-md-4">
                                     <label for="time_slot" class="form-label">Select Time Slot</label>
-                                    <select class="form-select" id="time_slot" multiple size="2">
+                                    <select class="form-select" id="time_slot" multiple size="2" wire:model="timeSlot">
                                         <option value="7:00 AM - 8:00 AM">7:00 AM - 8:00 AM</option>
                                         <option value="8:00 AM - 9:00 AM">8:00 AM - 9:00 AM</option>
                                         <option value="9:00 AM - 10:00 AM">9:00 AM - 10:00 AM</option>
