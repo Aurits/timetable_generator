@@ -42,4 +42,40 @@ class TimetableEntry extends Model
 
         return $existingEntry !== null;
     }
+
+    public function isTeacherAvailable()
+    {
+        $teacherAvailability = Teacher::where('id', $this->teacher_id)
+            ->whereDoesntHave('timetableEntries', function ($query) {
+                $query->where('day', $this->day)
+                    ->where('time_slot', $this->time_slot);
+            })
+            ->exists();
+
+        return $teacherAvailability;
+    }
+
+    public function isClassroomAvailable()
+    {
+        $classroomAvailability = Classroom::where('id', $this->classroom_id)
+            ->whereDoesntHave('timetableEntries', function ($query) {
+                $query->where('day', $this->day)
+                    ->where('time_slot', $this->time_slot);
+            })
+            ->exists();
+
+        return $classroomAvailability;
+    }
+
+    public function isSubjectAvailable()
+    {
+        $subjectAvailability = Subject::where('id', $this->subject_id)
+            ->whereDoesntHave('timetableEntries', function ($query) {
+                $query->where('day', $this->day)
+                    ->where('time_slot', $this->time_slot);
+            })
+            ->exists();
+
+        return $subjectAvailability;
+    }
 }
