@@ -21,6 +21,10 @@ class Home extends Component
 
     public function addClassroom()
     {
+        $this->validate([
+            'classroom' => 'required|unique:classrooms,name',
+        ]);
+
         try {
             Classroom::create(['name' => $this->classroom]);
             $this->resetFields();
@@ -32,6 +36,10 @@ class Home extends Component
 
     public function addSubject()
     {
+        $this->validate([
+            'subject' => 'required|unique:subjects,name',
+        ]);
+
         try {
             Subject::create(['name' => $this->subject]);
             $this->resetFields();
@@ -43,6 +51,10 @@ class Home extends Component
 
     public function addTeacher()
     {
+        $this->validate([
+            'teacher' => 'required|unique:teachers,name',
+        ]);
+
         try {
             Teacher::create(['name' => $this->teacher]);
             $this->resetFields();
