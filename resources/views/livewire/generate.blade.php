@@ -1,4 +1,4 @@
-<div style="min-height: 100vh; display: flex; flex-direction: column;">
+<div style="min-height: 100vh; display: flex; flex-direction: column; background-color: #f8f9fa;">
     <!-- Navbar with professional styling -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
         <div class="container">
@@ -17,17 +17,16 @@
         </div>
     </nav>
 
-
     <div class="container-fluid mt-4 flex-grow-1 d-flex justify-content-center align-items-center">
         <div class="row">
-            <div class="mb-4">
-                <div class="card" style="height: 500px; width:80vw">
+            <div class="mb-4 col-lg-8">
+                <div class="card"
+                    style="height: 500px; width:80vw; border: 1px solid #dee2e6; border-radius: 8px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);">
                     <div class="card-body">
-                        <h5 class="card-title">Generate Timetable</h5>
+                        <h5 class="card-title mb-4">Generate Timetable</h5>
 
                         <form>
                             <div class="row mb-3">
-                                <!-- Column 1: Select Day -->
                                 <div class="col-md-4">
                                     <label for="day" class="form-label">Select Day</label>
                                     <select class="form-select" id="day">
@@ -40,7 +39,6 @@
                                     </select>
                                 </div>
 
-                                <!-- Column 2: Select Time Slot -->
                                 <div class="col-md-4">
                                     <label for="time_slot" class="form-label">Select Time Slot</label>
                                     <select class="form-select" id="time_slot" multiple size="2">
@@ -57,8 +55,6 @@
                                     </select>
                                 </div>
 
-
-                                <!-- Column 3: Select Classroom -->
                                 <div class="col-md-4">
                                     <label for="classroom" class="form-label">Select Classroom</label>
                                     <select class="form-select" id="classroom" wire:model="selectedClassroom">
@@ -69,9 +65,8 @@
                                     </select>
                                 </div>
                             </div>
-
+                            <div style="height: 20px;"></div>
                             <div class="row mb-3">
-                                <!-- Column 4: Select Subject -->
                                 <div class="col-md-6">
                                     <label for="subject" class="form-label">Select Subject</label>
                                     <select class="form-select" id="subject" wire:model="selectedSubject">
@@ -82,7 +77,6 @@
                                     </select>
                                 </div>
 
-                                <!-- Column 5: Select Teacher -->
                                 <div class="col-md-6">
                                     <label for="teacher" class="form-label">Select Teacher</label>
                                     <select class="form-select" id="teacher" wire:model="selectedTeacher">
@@ -94,8 +88,6 @@
                                 </div>
                             </div>
 
-                            <!-- Row 6: Submit Button -->
-                            <div class="" style="height: 10px;"></div>
                             <div class="row">
                                 <div class="col-md-12 text-center">
                                     <button type="submit" class="btn btn-primary">Generate Timetable</button>
