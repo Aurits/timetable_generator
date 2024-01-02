@@ -21,7 +21,7 @@
     <div class="container-fluid mt-4 flex-grow-1 d-flex justify-content-center align-items-center">
         <div class="row">
             <div class="mb-4">
-                <div class="card" style="height: 500px;">
+                <div class="card" style="height: 500px; width:80vw">
                     <div class="card-body">
                         <h5 class="card-title">Generate Timetable</h5>
 
