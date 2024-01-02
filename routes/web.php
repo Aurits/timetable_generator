@@ -1,8 +1,10 @@
 <?php
 
+use App\Livewire\Archived;
 use Illuminate\Support\Facades\Route;
 use App\Livewire\Home;
 use App\Livewire\Generate;
+use App\Livewire\Records;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,3 +20,6 @@ use App\Livewire\Generate;
 
 Route::get('/', Home::class);
 Route::get('/generate', Generate::class);
+Route::get('/records', Records::class);
+Route::get('/archived', Archived::class);
+Route::get('/search', [Records::class, 'search'])->name('search');
