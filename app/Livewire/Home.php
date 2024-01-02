@@ -23,6 +23,8 @@ class Home extends Component
     {
         $this->validate([
             'classroom' => 'required|unique:classrooms,name',
+        ], [
+            'classroom.unique' => 'The classroom name already exists.',
         ]);
 
         try {
@@ -38,6 +40,8 @@ class Home extends Component
     {
         $this->validate([
             'subject' => 'required|unique:subjects,name',
+        ], [
+            'subject.unique' => 'The subject name already exists.',
         ]);
 
         try {
@@ -53,6 +57,8 @@ class Home extends Component
     {
         $this->validate([
             'teacher' => 'required|unique:teachers,name',
+        ], [
+            'teacher.unique' => 'The teacher name already exists.',
         ]);
 
         try {
