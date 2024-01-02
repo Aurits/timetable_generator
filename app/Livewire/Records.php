@@ -13,10 +13,8 @@ class Records extends Component
 
     public function mount()
     {
-
-
         // Fetch records from the database
-        $this->entries = TimetableEntry::with('classroom', 'subject', 'teacher')->paginate();
+        $this->entries = TimetableEntry::with('classroom', 'subject', 'teacher')->paginate(10);
     }
 
     public function render()
