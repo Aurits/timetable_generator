@@ -30,6 +30,8 @@ class Generate extends Component
 
     public function generateTimetable()
     {
+        $successMessages = [];
+
         $this->validate([
             'day' => 'required',
             'timeSlot' => 'required|array|min:1',
@@ -62,11 +64,16 @@ class Generate extends Component
                 session()->flash('error', 'Subject is not available during the selected time for time slot: ' . $selectedTimeSlot . '. Please choose a different time slot or subject.');
             } else {
                 $timetableEntry->save();
-                session()->flash('success', 'Timetable entry stored successfully.');
+                $successMessages[] = 'Timetable entry for time slot: ' . $selectedTimeSlot . ' stored successfully.';
                 $this->clearForm();
             }
         }
+
+        if (!empty($successMessages)) {
+            session()->flash('success', implode(' ', $successMessages));
+        }
     }
+
 
     private function clearForm()
     {
