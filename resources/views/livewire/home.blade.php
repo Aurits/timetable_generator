@@ -35,6 +35,9 @@
                                 <label for="classroom" class="form-label">Classroom Name</label>
                                 <input type="text" class="form-control" id="classroom" wire:model="classroom">
                             </div>
+                            @error('classroom')
+                            <div class="alert alert-danger">{{ $message }}</div>
+                            @enderror
                             <div class="" style="height: 10px;"></div>
                             <button type="submit" class="btn btn-success">Add Classroom</button>
                         </form>

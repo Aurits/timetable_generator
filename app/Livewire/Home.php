@@ -23,8 +23,6 @@ class Home extends Component
     {
         $this->validate([
             'classroom' => 'required|unique:classrooms,name',
-        ], [
-            'classroom.unique' => 'The classroom name already exists.',
         ]);
 
         try {
@@ -40,8 +38,6 @@ class Home extends Component
     {
         $this->validate([
             'subject' => 'required|unique:subjects,name',
-        ], [
-            'subject.unique' => 'The subject name already exists.',
         ]);
 
         try {
@@ -57,8 +53,6 @@ class Home extends Component
     {
         $this->validate([
             'teacher' => 'required|unique:teachers,name',
-        ], [
-            'teacher.unique' => 'The teacher name already exists.',
         ]);
 
         try {
@@ -80,5 +74,14 @@ class Home extends Component
     public function dismissMessage()
     {
         $this->successMessage = '';
+    }
+
+    public function updated($field)
+    {
+        $this->validateOnly($field, [
+            'classroom' => 'unique:classrooms,name',
+            'subject' => 'unique:subjects,name',
+            'teacher' => 'unique:teachers,name',
+        ]);
     }
 }
