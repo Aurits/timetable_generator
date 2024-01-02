@@ -8,7 +8,7 @@
                 <ul class="navbar-nav flex-row">
                     <!-- Add the flex-row class here -->
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Generate</a>
+                        <a class="nav-link" href="generate">Generate</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#">Archived</a>

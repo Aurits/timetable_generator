@@ -1,5 +1,6 @@
 <?php
 
+use App\Livewire\Generate;
 use Illuminate\Support\Facades\Route;
 use App\Livewire\Home;
 
@@ -16,3 +17,4 @@ use App\Livewire\Home;
 
 
 Route::get('/', Home::class);
+Route::get('/generate', Generate::class);
