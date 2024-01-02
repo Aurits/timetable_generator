@@ -61,6 +61,9 @@
                                 <label for="subject" class="form-label">Subject Name</label>
                                 <input type="text" class="form-control" id="subject" wire:model="subject">
                             </div>
+                            @error('subject')
+                            <div class="alert alert-danger">{{ $message }}</div>
+                            @enderror
                             <div class="" style="height: 10px;"></div>
                             <button type="submit" class="btn btn-warning">Add Subject</button>
                         </form>
@@ -84,6 +87,9 @@
                                 <label for="teacher" class="form-label">Teacher Name</label>
                                 <input type="text" class="form-control" id="teacher" wire:model="teacher">
                             </div>
+                            @error('teacher')
+                            <div class="alert alert-danger">{{ $message }}</div>
+                            @enderror
                             <div class="" style="height: 10px;"></div>
                             <button type="submit" class="btn btn-info">Add Teacher</button>
                         </form>
