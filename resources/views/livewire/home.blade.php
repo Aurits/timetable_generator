@@ -20,7 +20,7 @@
     <div class="container mt-4 flex-grow-1 d-flex justify-content-center align-items-center">
         <div class="row">
             <div class="col-md-4">
-                <div class="card" style="height: 400px;">
+                <div class="card" style="height: 300px;">
                     <div class="card-body">
                         <h5 class="card-title">Add Classroom</h5>
                         @if ($successMessage && $successMessage === 'Classroom added successfully!')
@@ -42,7 +42,7 @@
             </div>
 
             <div class="col-md-4">
-                <div class="card" style="height: 400px;">
+                <div class="card" style="height: 300px;">
                     <div class="card-body">
                         <h5 class="card-title">Add Subject</h5>
                         @if ($successMessage && $successMessage === 'Subject added successfully!')
@@ -64,7 +64,7 @@
             </div>
 
             <div class="col-md-4">
-                <div class="card" style="height: 400px;">
+                <div class="card" style="height: 300px;">
                     <div class="card-body">
                         <h5 class="card-title">Add Teacher</h5>
                         @if ($successMessage && $successMessage === 'Teacher added successfully!')
