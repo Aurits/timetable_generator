@@ -1,11 +1,10 @@
-<div>
+<div style="min-height: 100vh; display: flex; flex-direction: column;">
     <!-- Navbar with professional styling -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
         <div class="container">
             <a class="navbar-brand" href="#">Your School Name</a>
 
-            <!-- Add any additional navigation items as needed -->
-            <div class="d-flex">
+            <div class="d-flex flex-grow-1 justify-content-end">
                 <ul class="navbar-nav">
                     <li class="nav-item">
                         <a class="nav-link" href="#">Link 1</a>
@@ -21,7 +20,7 @@
     <div class="container mt-4 flex-grow-1 d-flex justify-content-center align-items-center">
         <div class="row">
             <div class="col-md-4">
-                <div class="card">
+                <div class="card" style="height: 400px;">
                     <div class="card-body">
                         <h5 class="card-title">Add Classroom</h5>
                         @if ($successMessage && $successMessage === 'Classroom added successfully!')
@@ -43,7 +42,7 @@
             </div>
 
             <div class="col-md-4">
-                <div class="card">
+                <div class="card" style="height: 400px;">
                     <div class="card-body">
                         <h5 class="card-title">Add Subject</h5>
                         @if ($successMessage && $successMessage === 'Subject added successfully!')
@@ -65,7 +64,7 @@
             </div>
 
             <div class="col-md-4">
-                <div class="card">
+                <div class="card" style="height: 400px;">
                     <div class="card-body">
                         <h5 class="card-title">Add Teacher</h5>
                         @if ($successMessage && $successMessage === 'Teacher added successfully!')
