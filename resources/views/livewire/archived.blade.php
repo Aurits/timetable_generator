@@ -27,33 +27,17 @@
                 <div class="col-md-12">
                     <div class="card">
                         <div class="card-header">
-                            <h2 class="text-center">{{ $class->name }} Timetable</h2>
+                            <h2 class="text-center">Select a Class</h2>
                         </div>
                         <div class="card-body">
-                            @if ($timetableEntries->count() > 0)
-                            <table class="table table-bordered">
-                                <thead>
-                                    <tr>
-                                        <th>Day</th>
-                                        <th>Time Slot</th>
-                                        <th>Subject</th>
-                                        <th>Teacher</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    @foreach ($timetableEntries as $entry)
-                                    <tr>
-                                        <td>{{ ucfirst($entry->day) }}</td>
-                                        <td>{{ $entry->time_slot }}</td>
-                                        <td>{{ $entry->subject->name }}</td>
-                                        <td>{{ $entry->teacher->name }}</td>
-                                    </tr>
-                                    @endforeach
-                                </tbody>
-                            </table>
-                            @else
-                            <p class="text-center">No timetable entries available for {{ $class->name }}.</p>
-                            @endif
+                            <ul class="list-group">
+                                @foreach ($classes as $classOption)
+                                <li class="list-group-item">
+                                    <a
+                                        href="{{ route('archived.show', $classOption->id) }}">{{ $classOption->name }}</a>
+                                </li>
+                                @endforeach
+                            </ul>
                         </div>
                     </div>
                 </div>
@@ -66,5 +50,5 @@
         <div class="container">
             <span class="text-muted">TimeTable Generator © 2024. All rights reserved.</span>
         </div>
-        </ footer>
+    </footer>
 </div>
