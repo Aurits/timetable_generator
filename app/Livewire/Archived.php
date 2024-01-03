@@ -26,15 +26,18 @@ class Archived extends Component
             ->orderBy('time_slot')
             ->get();
 
-        return $this->render();
+        return view('livewire.archived', [
+            'class' => $this->class,
+            'timetableEntries' => $this->timetableEntries,
+            'classes' => $this->classes,
+        ]);
     }
+
 
     public function render()
     {
         return view('livewire.archived', [
-            'class' => $this->class,
-            'timetableEntries' => $this->timetableEntries,
-            'classes' => $this->classes, // Pass the list of classes to the view
+            'classes' => $this->classes,
         ]);
     }
 }
