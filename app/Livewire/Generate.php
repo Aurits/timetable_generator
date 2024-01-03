@@ -60,9 +60,11 @@ class Generate extends Component
                 $timetableEntry->save();
                 $successMessages[] = 'Timetable entry for time slot: ' . $selectedTimeSlot . ' stored successfully.';
                 // Clear the form for each successful entry
-                $this->clearForm();
+
             }
         }
+
+        $this->clearForm();
 
         if (!empty($successMessages)) {
             session()->flash('success', implode(' ', $successMessages));
