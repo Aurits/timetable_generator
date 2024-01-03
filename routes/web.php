@@ -23,5 +23,5 @@ Route::get('/generate', Generate::class);
 Route::get('/records', Records::class);
 Route::get('/archived', Archived::class);
 Route::get('/search', [Records::class, 'search'])->name('search');
-Route::get('/timetable/{id}/edit', 'TimetableController@edit')->name('timetable.edit');
-Route::delete('/timetable/{id}', 'TimetableController@destroy')->name('timetable.destroy');
+Route::get('/timetable/{id}/edit', 'Records@edit')->name('timetable.edit');
+Route::delete('/timetable/{id}', 'Records@destroy')->name('timetable.destroy');

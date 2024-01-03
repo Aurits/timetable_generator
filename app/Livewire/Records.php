@@ -9,6 +9,8 @@ use Livewire\WithPagination;
 class Records extends Component
 {
     use WithPagination;
+    public $confirmingEntryDeletion = false;
+    public $entryToDelete;
 
     public function render()
     {
@@ -17,5 +19,33 @@ class Records extends Component
 
         // Pass the paginated entries to the view
         return view('livewire.records', ['entries' => $entries]);
+    }
+
+    public function edit($id)
+    {
+        // Your edit logic here
+        // You might want to redirect to an edit page or open a modal for editing
+    }
+
+    public function confirmDelete($id)
+    {
+        $this->entryToDelete = TimetableEntry::find($id);
+        $this->confirmingEntryDeletion = true;
+    }
+
+    public function destroy()
+    {
+        // Your delete logic here
+        if ($this->entryToDelete) {
+            $this->entryToDelete->delete();
+            $this->confirmingEntryDeletion = false;
+            $this->reset(['entryToDelete']);
+        }
+    }
+
+    public function cancelDelete()
+    {
+        $this->confirmingEntryDeletion = false;
+        $this->reset(['entryToDelete']);
     }
 }
