@@ -80,7 +80,7 @@
                 </table>
 
                 <!-- Pagination -->
-                <div class="">
+                <div class="d-flex justify-content-center pagination-area mt-15 mb-sm-5 mb-lg-0">
                     {{ $entries->links() }}
                 </div>
             </div>
@@ -90,7 +90,6 @@
     <!-- Footer with a professional look -->
     <footer class="footer mt-auto py-3 bg-dark text-light">
         <div class="container">
-
 
             <span class="text-muted">TimeTable Generator © 2024. All rights reserved.</span>
         </div>
