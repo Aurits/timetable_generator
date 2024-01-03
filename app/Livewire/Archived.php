@@ -8,14 +8,25 @@ use App\Models\Classroom;
 
 class Archived extends Component
 {
+    public $class;
+    public $timetableEntries;
+
     public function showByClass($classId)
     {
-        $class = Classroom::findOrFail($classId);
-        $timetableEntries = TimetableEntry::where('classroom_id', $class->id)
+        $this->class = Classroom::findOrFail($classId);
+        $this->timetableEntries = TimetableEntry::where('classroom_id', $this->class->id)
             ->orderBy('day')
             ->orderBy('time_slot')
             ->get();
 
-        return view('livewire.archived', compact('class', 'timetableEntries'));
+        return view('livewire.archived', [
+            'class' => $this->class,
+            'timetableEntries' => $this->timetableEntries,
+        ]);
+    }
+
+    public function render()
+    {
+        return view('livewire.archived');
     }
 }
