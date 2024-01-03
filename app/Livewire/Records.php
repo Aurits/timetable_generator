@@ -29,12 +29,29 @@ class Records extends Component
 
     public function deleteRecord($id)
     {
-        $this->entryToDelete = TimetableEntry::find($id);
+        $this->entryToDelete = TimetableEntry::with('classroom', 'subject', 'teacher')->find($id);
 
         // Your delete logic here
         if ($this->entryToDelete) {
             $this->entryToDelete->delete();
-            $this->deleteSuccessMessage = 'Record deleted successfully.';
+            $this->deleteSuccessMessage = 'Record deleted successfully. Details: ' . $this->getRecordDetails();
         }
+    }
+
+    public function cancelDelete()
+    {
+        $this->reset(['entryToDelete', 'deleteSuccessMessage']);
+    }
+
+    private function getRecordDetails()
+    {
+        // Create a string with the details of the deleted record
+        $details = "Day: {$this->entryToDelete->day}, ";
+        $details .= "Time Slot: {$this->entryToDelete->time_slot}, ";
+        $details .= "Classroom: {$this->entryToDelete->classroom->name}, ";
+        $details .= "Subject: {$this->entryToDelete->subject->name}, ";
+        $details .= "Teacher: {$this->entryToDelete->teacher->name}";
+
+        return $details;
     }
 }
