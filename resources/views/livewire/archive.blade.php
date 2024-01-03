@@ -45,13 +45,16 @@
                         <tr>
                             <th class="text-center">{{ $timeSlot }}</th>
                             @foreach(['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'] as $day)
+                            <?php
+                            $entry = $timetableEntries->first(function ($entry) use ($day, $timeSlot) {
+                                return $entry->day == $day && $entry->time_slot == $timeSlot;
+                            });
+                            ?>
                             <td>
-                                @foreach($timetableEntries as $entry)
-                                @if($entry->day == $day && $entry->time_slot == $timeSlot)
+                                @if ($entry)
                                 {{ $entry->subject->name }}<br>
                                 {{ $entry->teacher->name }}
                                 @endif
-                                @endforeach
                             </td>
                             @endforeach
                         </tr>
@@ -64,8 +67,6 @@
             </div>
         </div>
     </div>
-
-
 
     <!-- Footer with a professional look -->
     <footer class="footer mt-auto py-3 bg-dark text-light">
