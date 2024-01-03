@@ -45,7 +45,6 @@
                         @endphp
 
                         @foreach($timeSlots as $timeSlot)
-
                         <tr>
                             <th class="text-center">{{ $timeSlot }}</th>
                             @foreach(['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'] as $day)
@@ -55,17 +54,15 @@
                             });
                             ?>
                             <td>
-                            <td>
                                 @if ($entry)
                                 {{ optional($entry->subject)->name }}<br>
                                 {{ optional($entry->teacher)->name }}
                                 @endif
                             </td>
-
-                            </td>
                             @endforeach
                         </tr>
                         @endforeach
+
                     </tbody>
                 </table>
                 @else
