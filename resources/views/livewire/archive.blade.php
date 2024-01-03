@@ -39,14 +39,16 @@
                     </thead>
                     <tbody>
                         @php
-                        $timeSlots = ['7:00 AM - 8:00 AM', '8:00 AM - 9:00 AM', '9:00 AM - 10:00 AM',
+                        $timeSlots = [
+                        '7:00 AM - 8:00 AM', '8:00 AM - 9:00 AM', '9:00 AM - 10:00 AM',
                         '10:00 AM - 11:00 AM', '11:00 AM - 12:00 PM', '12:00 PM - 1:00 PM',
-                        '1:00 PM - 2:00 PM', '2:00 PM - 3:00 PM', '3:00 PM - 4:00 PM', '4:00 PM - 5:00 PM'];
+                        '1:00 PM - 2:00 PM', '2:00 PM - 3:00 PM', '3:00 PM - 4:00 PM', '4:00 PM - 5:00 PM'
+                        ];
                         @endphp
 
                         @foreach($timeSlots as $timeSlot)
                         <tr>
-                            <th class="text-end">{{ $timeSlot }}</th>
+                            <th class="text-center">{{ $timeSlot }}</th>
                             @foreach(['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'] as $day)
                             <?php
                             $entry = $timetableEntries->first(function ($entry) use ($day, $timeSlot) {
@@ -55,17 +57,15 @@
                             ?>
                             <td>
                                 @if ($entry)
-                                {{ optional($entry->subject)->name }}<br>
-                                {{ optional($entry->teacher)->name }}
+                                {{ $entry->subject->name }}<br>
+                                {{ $entry->teacher->name }}
                                 @else
                                 No entry
                                 @endif
                             </td>
-
                             @endforeach
                         </tr>
                         @endforeach
-
                     </tbody>
                 </table>
                 @else
@@ -74,6 +74,7 @@
             </div>
         </div>
     </div>
+
 
     <!-- Footer with a professional look -->
     <footer class="footer mt-auto py-3 bg-dark text-light">

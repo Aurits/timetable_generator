@@ -24,6 +24,6 @@ class Archive extends Component
             ->orderBy('time_slot')
             ->get();
 
-        dd($this->class, $this->timetableEntries);
+        //dd($this->class, $this->timetableEntries);
     }
 }
