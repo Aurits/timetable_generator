@@ -23,7 +23,7 @@
 
     <div class="container-fluid mt-4">
         <div class="card">
-            <div class="card-header bg-primary text-white">
+            <div class="card-header bg-secondary text-white">
                 <h2 class="text-center">{{ $class->name }} Timetable</h2>
             </div>
             <div class="card-body">
