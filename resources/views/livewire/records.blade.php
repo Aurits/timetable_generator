@@ -95,9 +95,11 @@
 
         </div>
     </footer>
+
+
 </div>
 
-@push('scripts')
+
 <!-- Delete Confirmation Modal -->
 @if ($confirmingEntryDeletion)
 <div class="modal">
@@ -111,5 +113,5 @@
 
 </div>
 
+
 @endif
-@endpush

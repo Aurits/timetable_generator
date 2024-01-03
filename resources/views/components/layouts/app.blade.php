@@ -8,6 +8,9 @@
 
     <title>{{ $title ?? 'TimeTable Generator' }}</title>
     @livewireStyles
+
+    <!-- Additional styles for modal -->
+    @stack('styles')
 </head>
 
 <body>
@@ -17,6 +20,11 @@
     </script>
 
     @livewireScripts
+
+    <!-- Additional scripts for modal -->
+    @stack('scripts')
 </body>
+
+
 
 </html>
