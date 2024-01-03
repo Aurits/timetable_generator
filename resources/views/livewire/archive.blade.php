@@ -52,7 +52,7 @@
                             @foreach(['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'] as $day)
                             <?php
                             $entry = $timetableEntries->first(function ($entry) use ($day, $timeSlot) {
-                                return $entry->day == $day && $entry->time_slot == $timeSlot;
+                                return $entry->day == strtolower($day) && $entry->time_slot == $timeSlot;
                             });
                             ?>
                             <td>
@@ -60,7 +60,7 @@
                                 {{ $entry->subject->name }}<br>
                                 {{ $entry->teacher->name }}
                                 @else
-                                No entry
+
                                 @endif
                             </td>
                             @endforeach
