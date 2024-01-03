@@ -13,7 +13,7 @@ class Records extends Component
     public function render()
     {
         // Fetch records from the database with eager loading relationships and paginate
-        $entries = TimetableEntry::with('classroom', 'subject', 'teacher')->paginate(10);
+        $entries = TimetableEntry::with('classroom', 'subject', 'teacher')->paginate(2);
 
         // Pass the paginated entries to the view
         return view('livewire.records', ['entries' => $entries]);
