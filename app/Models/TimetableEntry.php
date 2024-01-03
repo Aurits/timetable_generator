@@ -48,7 +48,7 @@ class TimetableEntry extends Model
         $teacherAvailability = Teacher::where('id', $this->teacher_id)
             ->whereDoesntHave('timetableEntries', function ($query) {
                 $query->where('day', $this->day)
-                    ->where('time_slot', $this->time_slot);
+                    ->whereIn('time_slot', $this->time_slot);
             })
             ->exists();
 
@@ -60,7 +60,7 @@ class TimetableEntry extends Model
         $classroomAvailability = Classroom::where('id', $this->classroom_id)
             ->whereDoesntHave('timetableEntries', function ($query) {
                 $query->where('day', $this->day)
-                    ->where('time_slot', $this->time_slot);
+                    ->whereIn('time_slot', $this->time_slot);
             })
             ->exists();
 
@@ -72,7 +72,7 @@ class TimetableEntry extends Model
         $subjectAvailability = Subject::where('id', $this->subject_id)
             ->whereDoesntHave('timetableEntries', function ($query) {
                 $query->where('day', $this->day)
-                    ->where('time_slot', $this->time_slot);
+                    ->whereIn('time_slot', $this->time_slot);
             })
             ->exists();
 
