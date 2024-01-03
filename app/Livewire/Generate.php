@@ -75,6 +75,8 @@ class Generate extends Component
     }
 
 
+
+
     private function clearForm()
     {
         $this->day = null;
