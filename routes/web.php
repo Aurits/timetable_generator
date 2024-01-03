@@ -1,6 +1,7 @@
 <?php
 
 use App\Livewire\Archived;
+use App\Livewire\Archive;
 use Illuminate\Support\Facades\Route;
 use App\Livewire\Home;
 use App\Livewire\Generate;
@@ -22,5 +23,5 @@ Route::get('/', Home::class);
 Route::get('/generate', Generate::class);
 Route::get('/records', Records::class);
 Route::get('/archived', Archived::class);
-Route::get('/archived/{classId}', [Archived::class, 'showByClass'])->name('archived.show');
+Route::get('/archive/{classId}', [Archive::class, 'render'])->name('archive.show');
 Route::get('/search', [Records::class, 'search'])->name('search');

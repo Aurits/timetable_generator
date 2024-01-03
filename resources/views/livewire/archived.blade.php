@@ -33,8 +33,7 @@
                             <ul class="list-group">
                                 @foreach ($classes as $classOption)
                                 <li class="list-group-item">
-                                    <a
-                                        href="{{ route('archived.show', $classOption->id) }}">{{ $classOption->name }}</a>
+                                    <a href="{{ route('archive.show', $classOption->id) }}">{{ $classOption->name }}</a>
                                 </li>
                                 @endforeach
                             </ul>
