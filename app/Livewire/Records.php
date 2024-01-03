@@ -8,20 +8,14 @@ use Livewire\WithPagination;
 
 class Records extends Component
 {
-    public $entries;
     use WithPagination;
-
-    public function mount()
-    {
-        // Fetch records from the database
-        $this->entries = TimetableEntry::all()->with('classroom', 'subject', 'teacher')->paginate(10);
-
-        // dd($this->entries);
-    }
 
     public function render()
     {
+        // Fetch records from the database with eager loading relationships and paginate
+        $entries = TimetableEntry::with('classroom', 'subject', 'teacher')->paginate(10);
+
         // Pass the paginated entries to the view
-        return view('livewire.records', ['entries' => $this->entries]);
+        return view('livewire.records', ['entries' => $entries]);
     }
 }
