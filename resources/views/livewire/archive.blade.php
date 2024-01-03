@@ -57,8 +57,11 @@
                                 @if ($entry)
                                 {{ optional($entry->subject)->name }}<br>
                                 {{ optional($entry->teacher)->name }}
+                                @else
+                                No entry
                                 @endif
                             </td>
+
                             @endforeach
                         </tr>
                         @endforeach
