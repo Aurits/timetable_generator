@@ -37,9 +37,4 @@ class Records extends Component
             $this->deleteSuccessMessage = 'Record deleted successfully.';
         }
     }
-
-    public function cancelDelete()
-    {
-        $this->reset(['entryToDelete', 'deleteSuccessMessage']);
-    }
 }
