@@ -33,7 +33,7 @@
                             <ul class="list-group">
                                 @foreach ($classes as $classOption)
                                 <li class="list-group-item">
-                                    <a href="{{ route('archive.show', $classOption->id) }}" class="text-decoration-none">
+                                    <a href="{{ route('archive.show', $classOption->id) }}" class="text-decoration-none text-body text-bold">
                                         {{ $classOption->name }}
                                     </a>
                                 </li>
@@ -52,5 +52,6 @@
         <div class="container">
             <span class="text-muted">TimeTable Generator © 2024. All rights reserved.</span>
         </div>
+
         </ footer>
 </div>
