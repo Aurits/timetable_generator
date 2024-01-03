@@ -22,8 +22,7 @@
     </nav>
 
     <div class="container mt-4">
-        <div class="card"
-            style="width: 80vw; border: 1px solid #dee2e6; border-radius: 8px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);">
+        <div class="card" style="width: 80vw; border: 1px solid #dee2e6; border-radius: 8px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);">
             <div class="card-body">
                 <h5 class="card-title mb-4">TimeTable Records</h5>
 
@@ -56,6 +55,12 @@
                         </tr>
                     </thead>
                     <tbody>
+                        <tr>
+                            <!-- Success Message -->
+                            @if ($deleteSuccessMessage)
+                            <div class="alert alert-success mt-3">{{ $deleteSuccessMessage }}</div>
+                            @endif
+                        </tr>
                         @forelse($entries as $entry)
                         <tr>
                             <td>{{ $entry->day }}</td>
@@ -65,8 +70,7 @@
                             <td>{{ $entry->teacher->name }}</td>
                             <td>
                                 <button wire:click="edit({{ $entry->id }})" class="btn btn-primary btn-sm">Edit</button>
-                                <button wire:click="deleteRecord({{ $entry->id }})"
-                                    class="btn btn-danger btn-sm">Delete</button>
+                                <button wire:click="deleteRecord({{ $entry->id }})" class="btn btn-danger btn-sm">Delete</button>
                             </td>
                         </tr>
                         @empty
@@ -97,6 +101,7 @@
 
         </div>
     </footer>
+
 
 
 </div>
