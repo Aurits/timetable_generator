@@ -6,25 +6,22 @@ use Livewire\Component;
 use App\Models\TimetableEntry;
 use App\Models\Classroom;
 
-
 class Archive extends Component
 {
     public $class;
     public $timetableEntries;
-    public function render($classId)
+
+    public function render()
+    {
+        return view('livewire.archive');
+    }
+
+    public function mount($classId)
     {
         $this->class = Classroom::findOrFail($classId);
         $this->timetableEntries = TimetableEntry::where('classroom_id', $this->class->id)
             ->orderBy('day')
             ->orderBy('time_slot')
             ->get();
-
-        return view('livewire.archive', [
-
-            //  dd($this->class, $this->timetableEntries),
-            'class' => $this->class,
-            'timetableEntries' => $this->timetableEntries,
-
-        ]);
     }
 }
