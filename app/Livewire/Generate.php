@@ -58,7 +58,7 @@ class Generate extends Component
                 session()->flash('error', 'Issue with time slot: ' . $selectedTimeSlot . '. Please choose a different time slot, classroom, teacher, or subject.');
             } else {
                 $timetableEntry->save();
-                $successMessages[] = 'Timetable entry for time slot: ' . $selectedTimeSlot . ' stored successfully.<\b>';
+                $successMessages[] = 'Timetable entry for time slot: ' . $selectedTimeSlot . ' stored successfully.<b>';
                 // Clear the form for each successful entry
 
             }
