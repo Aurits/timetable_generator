@@ -22,30 +22,39 @@
     </nav>
 
     <div class="container-fluid mt-4 flex-grow-1 d-flex justify-content-center align-items-center">
-        <div class="row">
-            <div class="mb-4 col-lg-8">
-                <div class="card"
-                    style="width: 80vw; border: 1px solid #dee2e6; border-radius: 8px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);">
-                    <div class="card-body">
-                        <h5 class="card-title mb-4 text-center">Generate Timetable</h5>
-
-                        @if (session()->has('success'))
-                        <div class="alert alert-success text-center">{{ session('success') }}</div><br></br>
-                        @endif
-
-                        @if (session()->has('error'))
-                        <div class="alert alert-danger text-center">{{ session('error') }}</div>
-                        @endif
-
-                        <form wire:submit.prevent="generateTimetable">
-                            <!-- ... (Your existing form fields) ... -->
-
-                            <div class="row mt-3">
-                                <div class="col-md-12 text-center">
-                                    <button type="submit" class="btn btn-primary">Generate Timetable</button>
-                                </div>
-                            </div>
-                        </form>
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-md-12">
+                    <div class="card">
+                        <div class="card-header">
+                            <h2 class="text-center">{{ $class->name }} Timetable</h2>
+                        </div>
+                        <div class="card-body">
+                            @if ($timetableEntries->count() > 0)
+                            <table class="table table-bordered">
+                                <thead>
+                                    <tr>
+                                        <th>Day</th>
+                                        <th>Time Slot</th>
+                                        <th>Subject</th>
+                                        <th>Teacher</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach ($timetableEntries as $entry)
+                                    <tr>
+                                        <td>{{ ucfirst($entry->day) }}</td>
+                                        <td>{{ $entry->time_slot }}</td>
+                                        <td>{{ $entry->subject->name }}</td>
+                                        <td>{{ $entry->teacher->name }}</td>
+                                    </tr>
+                                    @endforeach
+                                </tbody>
+                            </table>
+                            @else
+                            <p class="text-center">No timetable entries available for {{ $class->name }}.</p>
+                            @endif
+                        </div>
                     </div>
                 </div>
             </div>
@@ -57,5 +66,5 @@
         <div class="container">
             <span class="text-muted">TimeTable Generator © 2024. All rights reserved.</span>
         </div>
-    </footer>
+        </ footer>
 </div>
