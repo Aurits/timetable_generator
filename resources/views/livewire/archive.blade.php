@@ -33,7 +33,7 @@
                         <tr>
                             <th></th> <!-- Empty corner cell -->
                             @foreach(['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'] as $day)
-                            <th class="text-center">{{ $day }}</th>
+                            <th class="text-center bg-success">{{ $day }}</th>
                             @endforeach
                         </tr>
                     </thead>
@@ -48,7 +48,7 @@
 
                         @foreach($timeSlots as $timeSlot)
                         <tr>
-                            <th class="text-center">{{ $timeSlot }}</th>
+                            <th class="text-center bg-success">{{ $timeSlot }}</th>
                             @foreach(['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'] as $day)
                             <?php
                             $entry = $timetableEntries->first(function ($entry) use ($day, $timeSlot) {
