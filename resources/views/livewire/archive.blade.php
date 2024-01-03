@@ -55,14 +55,17 @@
                                 return $entry->day == strtolower($day) && $entry->time_slot == $timeSlot;
                             });
                             ?>
-                            <td>
-                                @if ($entry)
-                                {{ $entry->subject->name }}<br>
-                                {{ $entry->teacher->name }}
-                                @else
+                            <td style="padding: 10px; text-align: center; vertical-align: middle;">
 
+                                @if ($entry)
+                                <strong>{{ $entry->subject->name }}</strong><br>
+                                <span style="font-style: italic;">{{ $entry->teacher->name }}</span>
+                                @else
+                                <!-- <em>No entry</em> -->
                                 @endif
+
                             </td>
+
                             @endforeach
                         </tr>
                         @endforeach
