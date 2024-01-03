@@ -69,7 +69,7 @@
                             <td>{{ $entry->subject->name }}</td>
                             <td>{{ $entry->teacher->name }}</td>
                             <td>
-                                <button wire:click="edit({{ $entry->id }})" class="btn btn-primary btn-sm">Edit</button>
+                                <!-- <button wire:click="edit({{ $entry->id }})" class="btn btn-primary btn-sm">Edit</button> -->
                                 <button wire:click="deleteRecord({{ $entry->id }})" class="btn btn-danger btn-sm">Delete</button>
                             </td>
                         </tr>
@@ -101,6 +101,7 @@
 
         </div>
     </footer>
+
 
 
 
