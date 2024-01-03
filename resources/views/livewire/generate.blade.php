@@ -24,13 +24,12 @@
     <div class="container-fluid mt-4 flex-grow-1 d-flex justify-content-center align-items-center">
         <div class="row">
             <div class="mb-4 col-lg-8">
-                <div class="card"
-                    style="height: 500px; width:80vw; border: 1px solid #dee2e6; border-radius: 8px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);">
+                <div class="card" style="height: 500px; width:80vw; border: 1px solid #dee2e6; border-radius: 8px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);">
                     <div class="card-body">
                         <h5 class="card-title mb-4">Generate Timetable</h5>
 
                         @if (session()->has('success'))
-                        <div class="alert alert-success">{{ session('success') }}</div>
+                        <div class="alert alert-success">{{ session('success') }}</div><br></br>
                         @endif
 
                         @if (session()->has('error'))
