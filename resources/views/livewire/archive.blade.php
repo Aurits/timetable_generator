@@ -55,10 +55,13 @@
                             });
                             ?>
                             <td>
+                            <td>
                                 @if ($entry)
-                                {{ $entry->subject->name }}<br>
-                                {{ $entry->teacher->name }}
+                                {{ optional($entry->subject)->name }}<br>
+                                {{ optional($entry->teacher)->name }}
                                 @endif
+                            </td>
+
                             </td>
                             @endforeach
                         </tr>
