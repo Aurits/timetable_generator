@@ -16,7 +16,7 @@ class Records extends Component
         // Fetch records from the database
         $this->entries = TimetableEntry::with('classroom', 'subject', 'teacher')->paginate(10);
 
-        dd($this->entries);
+        // dd($this->entries);
     }
 
     public function render()
