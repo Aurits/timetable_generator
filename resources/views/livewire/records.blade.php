@@ -78,6 +78,28 @@
                         @endforelse
                     </tbody>
                 </table>
+                <!-- Include the Livewire component for each record -->
+                @foreach ($entries as $entry)
+                <tr>
+                    <!-- Display other columns -->
+                    <td>
+                        <button wire:click="edit({{ $entry->id }})" class="btn btn-primary btn-sm">Edit</button>
+                        <button wire:click="confirmDelete({{ $entry->id }})" class="btn btn-danger btn-sm">Delete</button>
+                    </td>
+                </tr>
+                @endforeach
+
+                <!-- Delete Confirmation Modal -->
+                @if ($confirmingEntryDeletion)
+                <div class="modal">
+                    <div class="modal-content">
+                        <p>Are you sure you want to delete this entry?</p>
+                        <button wire:click="destroy" class="btn btn-danger">Yes</button>
+                        <button wire:click="cancelDelete" class="btn btn-secondary">No</button>
+                    </div>
+                </div>
+                @endif
+
 
                 <!-- Pagination -->
                 <div class="d-flex justify-content-center pagination-area pagination-sm">
@@ -90,6 +112,7 @@
     <!-- Footer with a professional look -->
     <footer class="footer mt-auto py-3 bg-dark text-light">
         <div class="container">
+
 
 
             <span class="text-muted">TimeTable Generator © 2024. All rights reserved.</span>
