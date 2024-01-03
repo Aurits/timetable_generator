@@ -80,10 +80,6 @@
                         @endforelse
                     </tbody>
                 </table>
-                <!-- Include the Livewire component for each record -->
-
-
-
 
                 <!-- Pagination -->
                 <div class="d-flex justify-content-center pagination-area pagination-sm">
@@ -101,6 +97,7 @@
 
         </div>
     </footer>
+
 
 
 
