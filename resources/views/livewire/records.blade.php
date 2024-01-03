@@ -22,8 +22,7 @@
     </nav>
 
     <div class="container mt-4">
-        <div class="card"
-            style="width: 80vw; border: 1px solid #dee2e6; border-radius: 8px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);">
+        <div class="card" style="width: 80vw; border: 1px solid #dee2e6; border-radius: 8px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);">
             <div class="card-body">
                 <h5 class="card-title mb-4">TimeTable Records</h5>
 
@@ -64,10 +63,8 @@
                             <td>{{ $entry->subject->name }}</td>
                             <td>{{ $entry->teacher->name }}</td>
                             <td>
-                                <a href="{{ route('timetable.edit', $entry->id) }}"
-                                    class="btn btn-primary btn-sm">Edit</a>
-                                <form action="{{ route('timetable.destroy', $entry->id) }}" method="post"
-                                    style="display: inline-block;">
+                                <a href="{{ route('timetable.edit', $entry->id) }}" class="btn btn-primary btn-sm">Edit</a>
+                                <form action="{{ route('timetable.destroy', $entry->id) }}" method="post" style="display: inline-block;">
                                     @csrf
                                     @method('DELETE')
                                     <button type="submit" class="btn btn-danger btn-sm">Delete</button>
@@ -83,7 +80,7 @@
                 </table>
 
                 <!-- Pagination -->
-                <div class="d-flex justify-content-center">
+                <div class="">
                     {{ $entries->links() }}
                 </div>
             </div>
@@ -93,6 +90,8 @@
     <!-- Footer with a professional look -->
     <footer class="footer mt-auto py-3 bg-dark text-light">
         <div class="container">
+
+
             <span class="text-muted">TimeTable Generator © 2024. All rights reserved.</span>
         </div>
     </footer>
