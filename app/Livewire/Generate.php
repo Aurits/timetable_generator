@@ -54,17 +54,12 @@ class Generate extends Component
                 'teacher_id' => $this->selectedTeacher,
             ]);
 
-            if ($timetableEntry->isColliding()) {
-                session()->flash('error', 'Timetable collision detected for time slot: ' . $selectedTimeSlot . '. Please choose a different time slot, classroom, teacher, or subject.');
-            } elseif (!$timetableEntry->isTeacherAvailable()) {
-                session()->flash('error', 'Teacher is not available during the selected time for time slot: ' . $selectedTimeSlot . '. Please choose a different time slot or teacher.');
-            } elseif (!$timetableEntry->isClassroomAvailable()) {
-                session()->flash('error', 'Classroom is not available during the selected time for time slot: ' . $selectedTimeSlot . '. Please choose a different time slot or classroom.');
-            } elseif (!$timetableEntry->isSubjectAvailable()) {
-                session()->flash('error', 'Subject is not available during the selected time for time slot: ' . $selectedTimeSlot . '. Please choose a different time slot or subject.');
+            if ($timetableEntry->isCollidingOrUnavailable()) {
+                session()->flash('error', 'Issue with time slot: ' . $selectedTimeSlot . '. Please choose a different time slot, classroom, teacher, or subject.');
             } else {
                 $timetableEntry->save();
                 $successMessages[] = 'Timetable entry for time slot: ' . $selectedTimeSlot . ' stored successfully.';
+                // Clear the form for each successful entry
                 $this->clearForm();
             }
         }
@@ -73,9 +68,6 @@ class Generate extends Component
             session()->flash('success', implode(' ', $successMessages));
         }
     }
-
-
-
 
     private function clearForm()
     {
