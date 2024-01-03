@@ -100,12 +100,8 @@
     <!-- Footer with a professional look -->
     <footer class="footer mt-auto py-3 bg-dark text-light">
         <div class="container">
-
-
-
-
-
             <span class="text-muted">TimeTable Generator © 2024. All rights reserved.</span>
+
 
         </div>
     </footer>
