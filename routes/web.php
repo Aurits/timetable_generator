@@ -22,4 +22,5 @@ Route::get('/', Home::class);
 Route::get('/generate', Generate::class);
 Route::get('/records', Records::class);
 Route::get('/archived', Archived::class);
+Route::get('/archived/{classId}', [Archived::class, 'show'])->name('archived.show');
 Route::get('/search', [Records::class, 'search'])->name('search');

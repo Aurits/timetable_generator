@@ -8,39 +8,33 @@ use App\Models\Classroom;
 
 class Archived extends Component
 {
-    // Public properties for data binding
     public $class;
     public $timetableEntries;
+    public $classes; // Add this property for the list of classes
 
-    // Mount method to initialize the component
     public function mount()
     {
-        // Default values or initialization logic can be added here
+        // Fetch and set the list of classes
+        $this->classes = Classroom::all();
     }
 
-    // Method to fetch and show timetable entries by class
     public function showByClass($classId)
     {
-        // Find the class by ID
         $this->class = Classroom::findOrFail($classId);
-
-        // Fetch timetable entries for the class
         $this->timetableEntries = TimetableEntry::where('classroom_id', $this->class->id)
             ->orderBy('day')
             ->orderBy('time_slot')
             ->get();
 
-        // Render the Livewire component with updated data
         return $this->render();
     }
 
-    // Render method to update the Livewire component's view
     public function render()
     {
-        // Pass the class and timetableEntries data to the Livewire view
         return view('livewire.archived', [
             'class' => $this->class,
             'timetableEntries' => $this->timetableEntries,
+            'classes' => $this->classes, // Pass the list of classes to the view
         ]);
     }
 }
