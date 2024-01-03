@@ -95,16 +95,17 @@
 
         </div>
     </footer>
+</div>
 
-
-    <!-- Delete Confirmation Modal -->
-    @if ($confirmingEntryDeletion)
-    <div class="modal">
-        <div class="modal-content">
-            <p>Are you sure you want to delete this entry?</p>
-            <button wire:click="destroy" class="btn btn-danger">Yes</button>
-            <button wire:click="cancelDelete" class="btn btn-secondary">No</button>
-        </div>
-        </ div>
-        @endif
+<!-- Delete Confirmation Modal -->
+@if ($confirmingEntryDeletion)
+<div class="modal">
+    <div class="modal-content">
+        <p>Are you sure you want to delete this entry?</p>
+        <button wire:click="destroy" class="btn btn-danger">Yes</button>
+        <button wire:click="cancelDelete" class="btn btn-secondary">No</button>
     </div>
+
+
+</div>
+@endif
