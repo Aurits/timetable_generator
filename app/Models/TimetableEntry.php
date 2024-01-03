@@ -28,6 +28,15 @@ class TimetableEntry extends Model
         return $this->belongsTo(Teacher::class);
     }
 
+
+    public function isCollidingOrUnavailable()
+    {
+        return $this->isColliding() ||
+            !$this->isTeacherAvailable() ||
+            !$this->isClassroomAvailable() ||
+            !$this->isSubjectAvailable();
+    }
+
     // Check for collision before saving a new entry
     public function isColliding()
     {
