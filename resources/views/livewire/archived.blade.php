@@ -24,16 +24,18 @@
     <div class="container-fluid mt-4 flex-grow-1 d-flex justify-content-center align-items-center">
         <div class="container">
             <div class="row justify-content-center">
-                <div class="col-md-12">
+                <div class="col-md-6">
                     <div class="card">
-                        <div class="card-header">
+                        <div class="card-header bg-primary text-white">
                             <h2 class="text-center">Select a Class</h2>
                         </div>
                         <div class="card-body">
                             <ul class="list-group">
                                 @foreach ($classes as $classOption)
                                 <li class="list-group-item">
-                                    <a href="{{ route('archive.show', $classOption->id) }}">{{ $classOption->name }}</a>
+                                    <a href="{{ route('archive.show', $classOption->id) }}" class="text-decoration-none">
+                                        {{ $classOption->name }}
+                                    </a>
                                 </li>
                                 @endforeach
                             </ul>
@@ -44,10 +46,11 @@
         </div>
     </div>
 
+
     <!-- Footer with a professional look -->
     <footer class="footer mt-auto py-3 bg-dark text-light">
         <div class="container">
             <span class="text-muted">TimeTable Generator © 2024. All rights reserved.</span>
         </div>
-    </footer>
+        </ footer>
 </div>
