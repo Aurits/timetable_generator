@@ -22,7 +22,7 @@ class Archive extends Component
         return view('livewire.archive', [
             'class' => $this->class,
             'timetableEntries' => $this->timetableEntries,
-            'classes' => $this->classes,
+
         ]);
     }
 }
