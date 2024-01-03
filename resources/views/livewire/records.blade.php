@@ -63,12 +63,8 @@
                             <td>{{ $entry->subject->name }}</td>
                             <td>{{ $entry->teacher->name }}</td>
                             <td>
-                                <a href="{{ route('timetable.edit', $entry->id) }}" class="btn btn-primary btn-sm">Edit</a>
-                                <form action="{{ route('timetable.destroy', $entry->id) }}" method="post" style="display: inline-block;">
-                                    @csrf
-                                    @method('DELETE')
-                                    <button type="submit" class="btn btn-danger btn-sm">Delete</button>
-                                </form>
+                                <button wire:click="edit({{ $entry->id }})" class="btn btn-primary btn-sm">Edit</button>
+                                <button wire:click="confirmDelete({{ $entry->id }})" class="btn btn-danger btn-sm">Delete</button>
                             </td>
                         </tr>
                         @empty
@@ -79,15 +75,7 @@
                     </tbody>
                 </table>
                 <!-- Include the Livewire component for each record -->
-                @foreach ($entries as $entry)
-                <tr>
-                    <!-- Display other columns -->
-                    <td>
-                        <button wire:click="edit({{ $entry->id }})" class="btn btn-primary btn-sm">Edit</button>
-                        <button wire:click="confirmDelete({{ $entry->id }})" class="btn btn-danger btn-sm">Delete</button>
-                    </td>
-                </tr>
-                @endforeach
+
 
                 <!-- Delete Confirmation Modal -->
                 @if ($confirmingEntryDeletion)
@@ -115,7 +103,10 @@
 
 
 
+
+
             <span class="text-muted">TimeTable Generator © 2024. All rights reserved.</span>
+
         </div>
     </footer>
 </div>
