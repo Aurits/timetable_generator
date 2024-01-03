@@ -31,19 +31,26 @@
                 <table class="table table-bordered">
                     <thead>
                         <tr>
-                            <th>Day</th>
-                            <th>Time Slot</th>
-                            <th>Subject</th>
-                            <th>Teacher</th>
+                            <th></th> <!-- Empty corner cell -->
+                            @foreach(['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'] as $day)
+                            <th class="text-center">{{ $day }}</th>
+                            @endforeach
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach ($timetableEntries as $entry)
+                        @foreach ($timeSlots as $timeSlot)
                         <tr>
-                            <td>{{ ucfirst($entry->day) }}</td>
-                            <td>{{ $entry->time_slot }}</td>
-                            <td>{{ $entry->subject->name }}</td>
-                            <td>{{ $entry->teacher->name }}</td>
+                            <th class="text-center">{{ $timeSlot }}</th>
+                            @foreach(['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'] as $day)
+                            <td>
+                                @foreach($timetableEntries as $entry)
+                                @if($entry->day == $day && $entry->time_slot == $timeSlot)
+                                {{ $entry->subject->name }}<br>
+                                {{ $entry->teacher->name }}
+                                @endif
+                                @endforeach
+                            </td>
+                            @endforeach
                         </tr>
                         @endforeach
                     </tbody>
@@ -54,6 +61,7 @@
             </div>
         </div>
     </div>
+
 
 
     <!-- Footer with a professional look -->
