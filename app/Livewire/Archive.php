@@ -20,6 +20,8 @@ class Archive extends Component
             ->get();
 
         return view('livewire.archive', [
+
+            dd($this->class, $this->timetableEntries),
             'class' => $this->class,
             'timetableEntries' => $this->timetableEntries,
 
